@@ -163,45 +163,48 @@ export default function Home() {
   }
 
   return (
-    <div className="bgCyan pt-36 px-64 min-h-screen">
+    <div className="bgCyan sm:pt-36 sm:px-64 px-0 pt-10 min-h-screen">
 
-      <h1 className="text-center spaceMono tracking-[0.4rem] leading-9 text-2xl mb-20 grayerTxt">SPLI <br /> TTER</h1>
+      <h1 className="text-center spaceMono tracking-[0.4rem] leading-9 text-[26px] sm:mb-20 mb-8 grayTxt">SPLI <br /> TTER</h1>
 
-      <div className="bg-white p-8 rounded-3xl">
+      <div className="bg-white p-6 sm:rounded-3xl rounded-r-3xl rounded-l-3xl">
 
-        <div className="grid grid-cols-2 gap-3">
-          <div className="pl-3 pr-8">
+        <div className="grid sm:grid-cols-2 sm:gap-3 gap-4">
+          <div className="pl-2 pr-2">
 
             <h1 className="spaceMono mb-2 grayTxt mt-3">Bill</h1>
 
             <button onFocus={handleFocusOne} onBlur={handleFocusOne} className={"w-full bgGray mb-10 rounded-md " + focusOne}>
-              <input className="text-black text-2xl w-full bg-transparent spaceMono text-end min-h-11 px-4 grayerTxt" placeholder="0" type="text" onChange={handleBillChange} value={inputValOne} />
+              <input className="text-black text-2xl w-full bg-transparent spaceMono text-end min-h-12 px-4 grayerTxt" placeholder="0" type="text" onChange={handleBillChange} value={inputValOne} />
             </button>
 
             <h1 className="spaceMono mb-4 grayTxt">Select Tip %</h1>
 
-            <div className="grid grid-rows-2 grid-cols-3 gap-4 text-2xl spaceMono mb-10">
+            <div className="grid sm:grid-rows-2 sm:grid-cols-3 grid-rows-3 grid-cols-2 gap-4 text-2xl spaceMono mb-10">
 
               <div>
-                <button className="min-h-11 bgDark flex items-center pb-1 justify-center w-full text-white rounded-md focus:bg-[#26c0ab] focus:text-[#00494d]" onClick={handle5}>5%</button>
-              </div>
-              <div>
-                <button className="min-h-11 bgDark flex items-center pb-1 justify-center w-full text-white rounded-md focus:bg-[#26c0ab] focus:text-[#00494d]" onClick={handle10}>10%</button>
-              </div>
-              <div>
-                <button className="min-h-11 bgDark flex items-center pb-1 justify-center w-full text-white rounded-md focus:bg-[#26c0ab] focus:text-[#00494d]" onClick={handle15}>15%</button>
-              </div>
-              <div>
-                <button className="min-h-11 bgDark flex items-center pb-1 justify-center w-full text-white rounded-md focus:bg-[#26c0ab] focus:text-[#00494d]" onClick={handle25}>25%</button>
-              </div>
-              <div>
-                <button className="min-h-11 bgDark flex items-center pb-1 justify-center w-full text-white rounded-md focus:bg-[#26c0ab] focus:text-[#00494d]" onClick={handle50}>50%</button>
-              </div>
-              <div>
-
-                <input className="w-full min-h-11 rounded-md bg-transparent text-center grayerTxt placeholder-[#5e7a7d] focus:outline focus:outline-[#26c0ab]" type="string" placeholder="Custom" onKeyDown={handleKeyDown} onChange={handleCustomChange} value={inputValThree} />
+                <button className="min-h-[52px] bgDark flex items-center pb-1 justify-center w-full text-white rounded-md focus:bg-[#26c0ab] focus:text-[#00494d]" onClick={handle5}>5%</button>
               </div>
 
+              <div>
+                <button className="min-h-[52px] bgDark flex items-center pb-1 justify-center w-full text-white rounded-md focus:bg-[#26c0ab] focus:text-[#00494d]" onClick={handle10}>10%</button>
+              </div>
+
+              <div>
+                <button className="min-h-[52px] bgDark flex items-center pb-1 justify-center w-full text-white rounded-md focus:bg-[#26c0ab] focus:text-[#00494d]" onClick={handle15}>15%</button>
+              </div>
+
+              <div>
+                <button className="min-h-[52px] bgDark flex items-center pb-1 justify-center w-full text-white rounded-md focus:bg-[#26c0ab] focus:text-[#00494d]" onClick={handle25}>25%</button>
+              </div>
+
+              <div>
+                <button className="min-h-[52px] bgDark flex items-center pb-1 justify-center w-full text-white rounded-md focus:bg-[#26c0ab] focus:text-[#00494d]" onClick={handle50}>50%</button>
+              </div>
+
+              <div>
+                <input className="w-full min-h-[52px] rounded-md bgGray text-center grayerTxt placeholder-[#5e7a7d] focus:outline focus:outline-[#26c0ab]" type="string" placeholder="Custom" onKeyDown={handleKeyDown} onChange={handleCustomChange} value={inputValThree} />
+              </div>
             </div>
 
             <div className="flex justify-between">
@@ -210,35 +213,38 @@ export default function Home() {
             </div>
 
             <button onFocus={handleFocusTwo} onBlur={handleFocusTwo} className={"w-full bgGray mb-4 rounded-md " + focusTwo}>
-              <input className="text-black text-2xl w-full bg-transparent spaceMono text-end min-h-11 px-4 grayerTxt" placeholder="0" type="text" onChange={handlePeopleChange} value={inputValTwo} />
+              <input className="text-black text-2xl w-full bg-transparent spaceMono text-end min-h-[52px] px-4 grayerTxt" placeholder="0" type="text" onChange={handlePeopleChange} value={inputValTwo} />
             </button>
           </div>
 
-          <div className="rounded-xl bgDark p-10 flex content-between flex-wrap">
+          <div className="rounded-xl bgDark py-6 px-6 flex content-between flex-wrap">
             <div className="w-full">
               <div className="flex justify-between mt-4 mb-11 w-full">
+
                 <p className="spaceMono text-white">
                   Tip Amount <br />
-                  <span className="grayTxt">/ person</span>
+                  <span className="grayTxt text-sm">/ person</span>
                 </p>
-                <h1 className="2xl:max-w-96 max-w-56 text-5xl text-end spaceMono primaryTxt overflow-x-auto overflow-y-hidden scrollbar">
+
+                <h1 className="2xl:max-w-96 sm:max-w-48 max-w-36 sm:text-5xl text-[32px] text-end spaceMono primaryTxt overflow-x-auto overflow-y-hidden scrollbar flex items-center">
                   ${personTip}
                 </h1>
               </div>
 
               <div className="flex justify-between w-full">
+
                 <p className="spaceMono text-white">
                   Total<br />
-                  <span className="grayTxt">/ person</span>
+                  <span className="grayTxt text-sm">/ person</span>
                 </p>
-                <h1 className="2xl:max-w-96 max-w-56 text-5xl text-end spaceMono primaryTxt overflow-x-auto overflow-y-hidden scrollbar">
+                <h1 className="2xl:max-w-96 sm:max-w-48 max-w-36 sm:text-5xl text-[32px] text-end spaceMono primaryTxt overflow-x-auto overflow-y-hidden scrollbar flex items-center">
                   ${totalPer}
                 </h1>
+
               </div>
             </div>
 
-
-            <button className="bgPrimary w-full min-h-11 text-center spaceMono text-lg rounded-[4px] grayerTxt" onClick={resetFunc}>RESET</button>
+            <button className="bgPrimary w-full min-h-[52px] text-center spaceMono sm:text-lg text-[22px] rounded-[4px] grayerTxt sm:mt-0 mt-8" onClick={resetFunc}>RESET</button>
           </div>
         </div>
       </div>
