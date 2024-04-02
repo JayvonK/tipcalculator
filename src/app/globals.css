@@ -16,7 +16,8 @@
 }
 
 .bgDark {
-   background-color: hsl(183, 100%, 15%);
+   background-color: #00494d;
+   color: #8ddfdf
 }
 
 .bgGray {
@@ -33,6 +34,10 @@ input::-webkit-inner-spin-button {
     color: hsl(186, 14%, 43%);
 }
 
+.grayTxt2 {
+    color: #7f9b9f;
+}
+
 .grayerTxt {
     color: #00494d;
 }
@@ -43,6 +48,10 @@ input::-webkit-inner-spin-button {
 
 .bgPrimary {
     background-color: #26c0ab;
+}
+
+.bgPrimaryNull {
+    background-color: #26c0ab70;
 }
 
 input:focus {

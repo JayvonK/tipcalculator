@@ -1,3 +1,21 @@
+![alt text](image.png)
+
+Jayvon Khuth
+
+4/2/2024
+
+Tip Calculator
+
+I created a website that's able to calculate the total tip amount per person, and total amount of money each person would need to pay based off of the total bill. I created this website using HTML, CSS, JavaScript/Typescript, and for the frameworks I used Next JS & Tailwind CSS. There was no backend needed for this website, everything was handled in the frontend. This project was fairly simple, I used state variables/functions, components, props and utilized events like onClick, onFocus, etc.
+
+
+Peer Reviewer: 
+
+Peer Review:
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
