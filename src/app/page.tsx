@@ -10,16 +10,18 @@ export default function Home() {
   const [error, setError] = useState<string>('');
   const [focusOne, setFocusOne] = useState<string>('');
   const [focusTwo, setFocusTwo] = useState<string>('');
+  const [focusThree, setFocusThree] = useState<string>('');
   const [errorBool, setErrorBool] = useState<boolean>(false);
   const [inputValOne, setInputValOne] = useState<string>('');
   const [inputValTwo, setInputValTwo] = useState<string>('');
+  const [inputValThree, setInputValThree] = useState<string>('');
+  const [custom, setCustom] = useState<number>(0);
 
   const handle5 = () => {
-    console.log(bill);
-    if (bill !== undefined && people !== undefined && people !== 0) {
+    if (people !== undefined && people !== 0) {
       let tip = bill * 0.05;
       let total = bill + tip;
-      setPersonTip(tip.toFixed(2));
+      setPersonTip((tip / people).toFixed(2));
       setTotalPer((total / people).toFixed(2));
     } else if (people === undefined || people === 0) {
       setError("Can't be zero");
@@ -30,11 +32,10 @@ export default function Home() {
   }
 
   const handle10 = () => {
-    console.log(bill);
     if (people !== undefined && people !== 0) {
       let tip = bill * 0.10;
       let total = bill + tip;
-      setPersonTip(tip.toFixed(2));
+      setPersonTip((tip / people).toFixed(2));
       setTotalPer((total / people).toFixed(2));
     } else if (people === undefined || people === 0) {
       setError("Can't be zero");
@@ -45,11 +46,10 @@ export default function Home() {
   }
 
   const handle15 = () => {
-    console.log(bill);
     if (people !== undefined && people !== 0) {
       let tip = bill * 0.15;
       let total = bill + tip;
-      setPersonTip(tip.toFixed(2));
+      setPersonTip((tip / people).toFixed(2));
       setTotalPer((total / people).toFixed(2));
     } else if (people === undefined || people === 0) {
       setError("Can't be zero");
@@ -60,11 +60,10 @@ export default function Home() {
   }
 
   const handle25 = () => {
-    console.log(bill);
     if (people !== undefined && people !== 0) {
       let tip = bill * 0.25;
       let total = bill + tip;
-      setPersonTip(tip.toFixed(2));
+      setPersonTip((tip / people).toFixed(2));
       setTotalPer((total / people).toFixed(2));
     } else if (people === undefined || people === 0) {
       setError("Can't be zero");
@@ -74,11 +73,23 @@ export default function Home() {
   }
 
   const handle50 = () => {
-    console.log(bill);
     if (people !== undefined && people !== 0) {
       let tip = bill * 0.5;
       let total = bill + tip;
-      setPersonTip(tip.toFixed(2));
+      setPersonTip((tip / people).toFixed(2));
+      setTotalPer((total / people).toFixed(2));
+    } else if (people === undefined || people === 0) {
+      setError("Can't be zero");
+      setErrorBool(true);
+      setFocusTwo('outline outline-red-600')
+    }
+  }
+
+  const handleCustom = (customVal: number) => {
+    if (people !== undefined && people !== 0) {
+      let tip = bill * (customVal * 0.01);
+      let total = bill + tip;
+      setPersonTip((tip / people).toFixed(2));
       setTotalPer((total / people).toFixed(2));
     } else if (people === undefined || people === 0) {
       setError("Can't be zero");
@@ -99,22 +110,39 @@ export default function Home() {
     }
   }
 
-  const handleCustom = () => {
+  const handleFocusThree = () => {
+    focusThree === '' ? setFocusThree('outline outline-[#26c0ab]') : setFocusThree('');
+  }
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleCustom(custom)
+    }
+  }
+
+  const handleCustomChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let num = Number(e.target.value);
+    if (num || e.target.value === "") {
+      setCustom(num);
+      handleCustom(num);
+      setInputValThree(e.target.value);
+    }
   }
 
   const handleBillChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (Number(e.target.value || e.target.value === '')) {
-      setInputValOne(e.target.value)
-      setBill(Number(e.target.value))
+    let num = Number(e.target.value);
+    if (num || e.target.value === '') {
+      setInputValOne(e.target.value);
+      setBill(num)
     }
   }
 
   const handlePeopleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (Number(e.target.value) || e.target.value === '') {
-      setPeople(Number(e.target.value));
+    let num = Number(e.target.value);
+    if (num || e.target.value === '') {
+      setPeople(num);
       setInputValTwo(e.target.value);
-      if (errorBool && Number(e.target.value) > 0) {
+      if (errorBool && num > 0) {
         setError('');
         setErrorBool(false);
         setFocusTwo('outline outline-[#26c0ab]')
@@ -126,6 +154,12 @@ export default function Home() {
   const resetFunc = () => {
     setPeople(0);
     setBill(0);
+    setCustom(0);
+    setInputValOne('');
+    setInputValTwo('');
+    setInputValThree('');
+    setPersonTip('0.00');
+    setTotalPer('0.00');
   }
 
   return (
@@ -149,23 +183,23 @@ export default function Home() {
             <div className="grid grid-rows-2 grid-cols-3 gap-4 text-2xl spaceMono mb-10">
 
               <div>
-                <button className="min-h-11 bgDark flex items-center pb-1 justify-center w-full text-white rounded-md" onClick={handle5}>5%</button>
+                <button className="min-h-11 bgDark flex items-center pb-1 justify-center w-full text-white rounded-md focus:bg-[#26c0ab] focus:text-[#00494d]" onClick={handle5}>5%</button>
               </div>
               <div>
-                <button className="min-h-11 bgDark flex items-center pb-1 justify-center w-full text-white rounded-md" onClick={handle10}>10%</button>
+                <button className="min-h-11 bgDark flex items-center pb-1 justify-center w-full text-white rounded-md focus:bg-[#26c0ab] focus:text-[#00494d]" onClick={handle10}>10%</button>
               </div>
               <div>
-                <button className="min-h-11 bgDark flex items-center pb-1 justify-center w-full text-white rounded-md" onClick={handle15}>15%</button>
+                <button className="min-h-11 bgDark flex items-center pb-1 justify-center w-full text-white rounded-md focus:bg-[#26c0ab] focus:text-[#00494d]" onClick={handle15}>15%</button>
               </div>
               <div>
-                <button className="min-h-11 bgDark flex items-center pb-1 justify-center w-full text-white rounded-md" onClick={handle25}>25%</button>
+                <button className="min-h-11 bgDark flex items-center pb-1 justify-center w-full text-white rounded-md focus:bg-[#26c0ab] focus:text-[#00494d]" onClick={handle25}>25%</button>
               </div>
               <div>
-                <button className="min-h-11 bgDark flex items-center pb-1 justify-center w-full text-white rounded-md" onClick={handle50}>50%</button>
+                <button className="min-h-11 bgDark flex items-center pb-1 justify-center w-full text-white rounded-md focus:bg-[#26c0ab] focus:text-[#00494d]" onClick={handle50}>50%</button>
               </div>
               <div>
-                <button className="min-h-11 bgGray flex items-center pb-1 justify-center w-full text-white rounded-md grayTxt">
-                  <input className="w-full bg-transparent text-center placeholder-[#5e7a7d]" type="string" placeholder="Custom" /></button>
+
+                <input className="w-full min-h-11 rounded-md bg-transparent text-center grayerTxt placeholder-[#5e7a7d] focus:outline focus:outline-[#26c0ab]" type="string" placeholder="Custom" onKeyDown={handleKeyDown} onChange={handleCustomChange} value={inputValThree} />
               </div>
 
             </div>
@@ -175,32 +209,36 @@ export default function Home() {
               <h1 className="text-red-600 spaceMono">{error}</h1>
             </div>
 
-            {/* <input className="text-black min-h-11 bgGray text-2xl spaceMono text-end w-full mb-4 px-4 rounded-md grayerTxt" placeholder="0" type="number" onChange={handlePeopleChange} /> */}
-            <button onFocus={handleFocusTwo} onBlur={handleFocusTwo} className={"w-full bgGray mb-10 rounded-md " + focusTwo}>
+            <button onFocus={handleFocusTwo} onBlur={handleFocusTwo} className={"w-full bgGray mb-4 rounded-md " + focusTwo}>
               <input className="text-black text-2xl w-full bg-transparent spaceMono text-end min-h-11 px-4 grayerTxt" placeholder="0" type="text" onChange={handlePeopleChange} value={inputValTwo} />
             </button>
           </div>
 
-          <div className="rounded-xl bgDark p-10">
-            <div className="flex justify-between mt-4 mb-11">
-              <p className="spaceMono text-white">
-                Tip Amount <br />
-                <span className="grayTxt">/ person</span>
-              </p>
-              <h1 className="text-5xl text-end spaceMono primaryTxt">
-                ${personTip}
-              </h1>
+          <div className="rounded-xl bgDark p-10 flex content-between flex-wrap">
+            <div className="w-full">
+              <div className="flex justify-between mt-4 mb-11 w-full">
+                <p className="spaceMono text-white">
+                  Tip Amount <br />
+                  <span className="grayTxt">/ person</span>
+                </p>
+                <h1 className="2xl:max-w-96 max-w-56 text-5xl text-end spaceMono primaryTxt overflow-x-auto overflow-y-hidden scrollbar">
+                  ${personTip}
+                </h1>
+              </div>
+
+              <div className="flex justify-between w-full">
+                <p className="spaceMono text-white">
+                  Total<br />
+                  <span className="grayTxt">/ person</span>
+                </p>
+                <h1 className="2xl:max-w-96 max-w-56 text-5xl text-end spaceMono primaryTxt overflow-x-auto overflow-y-hidden scrollbar">
+                  ${totalPer}
+                </h1>
+              </div>
             </div>
 
-            <div className="flex justify-between">
-              <p className="spaceMono text-white">
-                Total<br />
-                <span className="grayTxt">/ person</span>
-              </p>
-              <h1 className="text-5xl text-end spaceMono primaryTxt">
-                ${totalPer}
-              </h1>
-            </div>
+
+            <button className="bgPrimary w-full min-h-11 text-center spaceMono text-lg rounded-[4px] grayerTxt" onClick={resetFunc}>RESET</button>
           </div>
         </div>
       </div>

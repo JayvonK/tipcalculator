@@ -30,11 +30,11 @@ input::-webkit-inner-spin-button {
 }
 
 .grayTxt {
-    color: #5e7a7d;
+    color: hsl(186, 14%, 43%);
 }
 
 .grayerTxt {
-    color: hsl(183, 100%, 15%);
+    color: #00494d;
 }
 
 .primaryTxt {
@@ -42,7 +42,7 @@ input::-webkit-inner-spin-button {
 }
 
 .bgPrimary {
-    background-color: hsl(172, 67%, 45%);
+    background-color: #26c0ab;
 }
 
 input:focus {
