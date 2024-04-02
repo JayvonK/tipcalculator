@@ -10,6 +10,9 @@ export default function Home() {
   const [error, setError] = useState<string>('');
   const [focusOne, setFocusOne] = useState<string>('');
   const [focusTwo, setFocusTwo] = useState<string>('');
+  const [errorBool, setErrorBool] = useState<boolean>(false);
+  const [inputValOne, setInputValOne] = useState<string>('');
+  const [inputValTwo, setInputValTwo] = useState<string>('');
 
   const handle5 = () => {
     console.log(bill);
@@ -20,6 +23,9 @@ export default function Home() {
       setTotalPer((total / people).toFixed(2));
     } else if (people === undefined || people === 0) {
       setError("Can't be zero");
+      setError("Can't be zero");
+      setErrorBool(true);
+      setFocusTwo('outline outline-red-600')
     }
   }
 
@@ -32,6 +38,9 @@ export default function Home() {
       setTotalPer((total / people).toFixed(2));
     } else if (people === undefined || people === 0) {
       setError("Can't be zero");
+      setError("Can't be zero");
+      setErrorBool(true);
+      setFocusTwo('outline outline-red-600')
     }
   }
 
@@ -44,6 +53,9 @@ export default function Home() {
       setTotalPer((total / people).toFixed(2));
     } else if (people === undefined || people === 0) {
       setError("Can't be zero");
+      setError("Can't be zero");
+      setErrorBool(true);
+      setFocusTwo('outline outline-red-600')
     }
   }
 
@@ -56,6 +68,8 @@ export default function Home() {
       setTotalPer((total / people).toFixed(2));
     } else if (people === undefined || people === 0) {
       setError("Can't be zero");
+      setErrorBool(true);
+      setFocusTwo('outline outline-red-600')
     }
   }
 
@@ -68,6 +82,8 @@ export default function Home() {
       setTotalPer((total / people).toFixed(2));
     } else if (people === undefined || people === 0) {
       setError("Can't be zero");
+      setErrorBool(true);
+      setFocusTwo('outline outline-red-600')
     }
   }
 
@@ -76,7 +92,11 @@ export default function Home() {
   }
 
   const handleFocusTwo = () => {
-    focusTwo === '' ? setFocusTwo('outline outline-[#26c0ab]') : setFocusTwo('');
+    if (focusTwo === '' && !errorBool) {
+      setFocusTwo('outline outline-[#26c0ab]')
+    } else if (focusTwo === 'outline outline-[#26c0ab]' && !errorBool) {
+      setFocusTwo('')
+    }
   }
 
   const handleCustom = () => {
@@ -84,11 +104,28 @@ export default function Home() {
   }
 
   const handleBillChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setBill(Number(e.target.value))
+    if (Number(e.target.value || e.target.value === '')) {
+      setInputValOne(e.target.value)
+      setBill(Number(e.target.value))
+    }
   }
 
   const handlePeopleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPeople(Number(e.target.value));
+    if (Number(e.target.value) || e.target.value === '') {
+      setPeople(Number(e.target.value));
+      setInputValTwo(e.target.value);
+      if (errorBool && Number(e.target.value) > 0) {
+        setError('');
+        setErrorBool(false);
+        setFocusTwo('outline outline-[#26c0ab]')
+      }
+    }
+
+  }
+
+  const resetFunc = () => {
+    setPeople(0);
+    setBill(0);
   }
 
   return (
@@ -104,7 +141,7 @@ export default function Home() {
             <h1 className="spaceMono mb-2 grayTxt mt-3">Bill</h1>
 
             <button onFocus={handleFocusOne} onBlur={handleFocusOne} className={"w-full bgGray mb-10 rounded-md " + focusOne}>
-              <input className="text-black text-2xl w-full bg-transparent spaceMono text-end min-h-11 px-4 grayerTxt" placeholder="0" type="number" onChange={handleBillChange} />
+              <input className="text-black text-2xl w-full bg-transparent spaceMono text-end min-h-11 px-4 grayerTxt" placeholder="0" type="text" onChange={handleBillChange} value={inputValOne} />
             </button>
 
             <h1 className="spaceMono mb-4 grayTxt">Select Tip %</h1>
@@ -128,7 +165,7 @@ export default function Home() {
               </div>
               <div>
                 <button className="min-h-11 bgGray flex items-center pb-1 justify-center w-full text-white rounded-md grayTxt">
-                  <input className="w-full bg-transparent text-center placeholder-[#5e7a7d]" type="number" placeholder="Custom"/></button>
+                  <input className="w-full bg-transparent text-center placeholder-[#5e7a7d]" type="string" placeholder="Custom" /></button>
               </div>
 
             </div>
@@ -140,7 +177,7 @@ export default function Home() {
 
             {/* <input className="text-black min-h-11 bgGray text-2xl spaceMono text-end w-full mb-4 px-4 rounded-md grayerTxt" placeholder="0" type="number" onChange={handlePeopleChange} /> */}
             <button onFocus={handleFocusTwo} onBlur={handleFocusTwo} className={"w-full bgGray mb-10 rounded-md " + focusTwo}>
-              <input className="text-black text-2xl w-full bg-transparent spaceMono text-end min-h-11 px-4 grayerTxt" placeholder="0" type="number" onChange={handlePeopleChange} />
+              <input className="text-black text-2xl w-full bg-transparent spaceMono text-end min-h-11 px-4 grayerTxt" placeholder="0" type="text" onChange={handlePeopleChange} value={inputValTwo} />
             </button>
           </div>
 
