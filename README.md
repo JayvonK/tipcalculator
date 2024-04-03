@@ -9,9 +9,17 @@ Tip Calculator
 I created a website that's able to calculate the total tip amount per person, and total amount of money each person would need to pay based off of the total bill. I created this website using HTML, CSS, JavaScript/Typescript, and for the frameworks I used Next JS & Tailwind CSS. There was no backend needed for this website, everything was handled in the frontend. This project was fairly simple, I used state variables/functions, components, props and utilized events like onClick, onFocus, etc.
 
 
-Peer Reviewer: 
+Peer Reviewer: Joseph Poncini
 
-Peer Review:
+Peer Review: Overall the website looks like the prototype in both mobile and desktop so good job. I noticed a few areas that can be improved so I'll try to list them out in some sort of organized manner
+
+- Interface: 
+    - On mobile the bottom right corner of the white container shouldn't be rounded. Quick easy fix
+
+- Functionality: 
+    - I noticed the "Can't be zero" message pops up as soon as I click a tip button but beore I've even clicked the bill button, I would probably have it only pop up if the user has given an input for both bill && tip but not for the number of people.
+    - The custom button you have functioning as a Custom tip "percent" button. Usually at restaraunts I think it would more likely serve as a custom tip "amount" vs a percent. You can check with the TAs on that though since it's a little ambiguous from the prototype.
+    - More niche, but technically you can't have a decimal number of people, so I would restrict the input to only be whole numbers and likewise for the bill only take values up to 2 decimal places. E.g. $5.50 is fine but $5.551 is not 
 
 Vercel Link: https://tipcalculator-ashy.vercel.app/
 
