@@ -324,7 +324,7 @@ const TipCalculator = () => {
                             </div>
 
                             <div>
-                                <input className={"w-full min-h-[50px] rounded-sm bgGray text-center grayerTxt placeholder-[#5e7a7d] focus:outline focus:outline-[#26c0ab] hover:cursor-pointer " + handleCustomClass} type="string" placeholder="Custom" onKeyDown={handleKeyDown} onChange={handleCustomChange} value={inputValThree} onClick={() => handleCustom(bills, peoples, custom)} />
+                                <input className={"w-full min-h-[50px] rounded-sm bgGray text-center grayerTxt placeholder-[#5e7a7d] focus:outline focus:outline-2 focus:outline-[#26c0ab] hover:cursor-pointer " + handleCustomClass} type="string" placeholder="Custom" onKeyDown={handleKeyDown} onChange={handleCustomChange} value={inputValThree} onClick={() => handleCustom(bills, peoples, custom)} />
                             </div>
                         </div>
 
@@ -343,7 +343,7 @@ const TipCalculator = () => {
                         <div className="w-full">
                             <div className="flex justify-between mt-4 sm:mb-11 mb-7 w-full">
 
-                                <p className="spaceMono text-white">
+                                <p className="spaceMono text-white sm:pt-2 pt-0">
                                     Tip Amount <br />
                                     <span className="grayTxt2 text-sm">/ person</span>
                                 </p>
@@ -355,7 +355,7 @@ const TipCalculator = () => {
 
                             <div className="flex justify-between w-full">
 
-                                <p className="spaceMono text-white">
+                                <p className="spaceMono text-white ">
                                     Total<br />
                                     <span className="grayTxt2 text-sm">/ person</span>
                                 </p>
