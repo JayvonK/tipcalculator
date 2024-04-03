@@ -18,7 +18,6 @@ Peer Review: Overall the website looks like the prototype in both mobile and des
 
 - Functionality: 
     - I noticed the "Can't be zero" message pops up as soon as I click a tip button but beore I've even clicked the bill button, I would probably have it only pop up if the user has given an input for both bill && tip but not for the number of people.
-    - The custom button you have functioning as a Custom tip "percent" button. Usually at restaraunts I think it would more likely serve as a custom tip "amount" vs a percent. You can check with the TAs on that though since it's a little ambiguous from the prototype.
     - More niche, but technically you can't have a decimal number of people, so I would restrict the input to only be whole numbers and likewise for the bill only take values up to 2 decimal places. E.g. $5.50 is fine but $5.551 is not 
 
 - Organization:
