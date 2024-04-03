@@ -287,14 +287,14 @@ const TipCalculator = () => {
 
             <h1 className="text-center spaceMono tracking-[0.4rem] leading-9 text-2xl sm:mb-20 mb-8 grayerTxt">SPLI <br /> TTER</h1>
 
-            <div className="bg-white sm:p-8 p-6 sm:rounded-3xl rounded-r-3xl rounded-l-3xl rounded-b-none rounded-bl-none">
+            <div className="bg-white sm:p-8 pt-[18px] pb-7 px-6 sm:rounded-3xl rounded-r-3xl rounded-l-3xl rounded-b-none rounded-bl-none">
 
                 <div className="grid lg:grid-cols-2 lg:gap-3 gap-4">
                     <div className="sm:pl-3 sm:pr-8 pl-2 pr-2">
 
                         <h1 className="spaceMono mb-2 grayTxt mt-3">Bill</h1>
 
-                        <button onFocus={handleFocusOne} onBlur={handleFocusOne} className={"w-full bgGray mb-10 rounded-sm flex justify-between items-center px-4 " + focusOne}>
+                        <button onFocus={handleFocusOne} onBlur={handleFocusOne} className={"w-full bgGray sm:mb-10 mb-8 sm:rounded-sm rounded-md flex justify-between items-center px-4 " + focusOne}>
                             <img src={billIcon.src} alt="" />
                             <input className="text-black text-2xl w-full bg-transparent spaceMono text-end min-h-11 grayerTxt pl-1" placeholder="0" type="text" onChange={handleBillChange} value={inputValOne} />
                         </button>
@@ -324,7 +324,7 @@ const TipCalculator = () => {
                             </div>
 
                             <div>
-                                <input className={"w-full min-h-[50px] rounded-sm bgGray text-center grayerTxt placeholder-[#5e7a7d] focus:outline focus:outline-2 focus:outline-[#26c0ab] hover:cursor-pointer " + handleCustomClass} type="string" placeholder="Custom" onKeyDown={handleKeyDown} onChange={handleCustomChange} value={inputValThree} onClick={() => handleCustom(bills, peoples, custom)} />
+                                <input className={"w-full min-h-[50px] sm:rounded-sm rounded-md bgGray text-center grayerTxt placeholder-[#5e7a7d] focus:outline focus:outline-2 focus:outline-[#26c0ab] hover:cursor-pointer " + handleCustomClass} type="string" placeholder="Custom" onKeyDown={handleKeyDown} onChange={handleCustomChange} value={inputValThree} onClick={() => handleCustom(bills, peoples, custom)} />
                             </div>
                         </div>
 
@@ -333,7 +333,7 @@ const TipCalculator = () => {
                             <h1 className="text-red-600 spaceMono">{error}</h1>
                         </div>
 
-                        <button onFocus={handleFocusTwo} onBlur={handleFocusTwo} className={"w-full bgGray mb-4 rounded-sm flex justify-between items-center px-4 " + focusTwo}>
+                        <button onFocus={handleFocusTwo} onBlur={handleFocusTwo} className={"w-full bgGray mb-4 sm:rounded-sm rounded-md flex justify-between items-center px-4 " + focusTwo}>
                             <img src={personIcon.src} alt="" />
                             <input className="text-black text-2xl w-full bg-transparent spaceMono text-end min-h-11 grayerTxt" placeholder="0" type="text" onChange={handlePeopleChange} value={inputValTwo} />
                         </button>
