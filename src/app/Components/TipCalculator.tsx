@@ -216,7 +216,8 @@ const TipCalculator = () => {
 
     const handleBillChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         let num = Number(e.target.value);
-        if (num || e.target.value === '') {
+        const targetSplit = e.target.value.split('.')
+        if ((num || e.target.value === '') && (targetSplit[1] === undefined || targetSplit[1].length < 3)) {
             setInputValOne(e.target.value);
             setBill(num)
             if (bool5) {
@@ -237,7 +238,7 @@ const TipCalculator = () => {
 
     const handlePeopleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         let num = Number(e.target.value);
-        if (num || e.target.value === '') {
+        if ((num || e.target.value === '') && !e.target.value.includes('.')) {
             setPeople(num);
             setInputValTwo(e.target.value);
             if (bool5) {
@@ -287,7 +288,7 @@ const TipCalculator = () => {
 
             <h1 className="text-center spaceMono tracking-[0.4rem] leading-9 text-2xl sm:mb-20 mb-8 grayerTxt">SPLI <br /> TTER</h1>
 
-            <div className="bg-white sm:p-8 pt-[18px] pb-7 px-6 sm:rounded-3xl rounded-r-3xl rounded-l-3xl rounded-b-none rounded-bl-none">
+            <div className="bg-white sm:p-8 pt-[18px] pb-7 px-6 sm:rounded-3xl rounded-tr-3xl rounded-tl-3xl rounded-br-none rounded-bl-none">
 
                 <div className="grid lg:grid-cols-2 lg:gap-3 gap-4">
                     <div className="sm:pl-3 sm:pr-8 pl-2 pr-2">

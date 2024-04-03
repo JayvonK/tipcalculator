@@ -23,6 +23,9 @@ Peer Review: Overall the website looks like the prototype in both mobile and des
 - Organization:
     - In your code, you have a lot of repeated functions that are only slightly different for the tip buttons. I would simplify them down to just one function that takes in a "tip value" parameter and maybe map through an array of values to make all of your buttons
 
+
+Edit: I was able to fix the mobile's white container rounded issue, and I also made it where the people input only allows whole numbers, while the bill input doesn't allow numbers that have more than 2 digits after the decimal. I talked to Joe about the repeated functions, he said he didn't notice that there were things that I was changing inside of each function like the bool variables and state class variables, so I decided not to change it simplify them down into one function. However I still tried out the code with the simplified version of one function, and it all ran the same.
+
 Vercel Link: https://tipcalculator-ashy.vercel.app/
 
 
