@@ -198,7 +198,6 @@ const TipCalculator = () => {
         }
     }
 
-
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter") {
             handleCustom(bills, peoples, custom)
